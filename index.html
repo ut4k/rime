@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+		<link rel="stylesheet" href="./main.css">
+		<!-- <link rel="stylesheet" href="./node_modules/styles/default.css"> -->
+		<script>require("./node_modules/highlight.js");</script>
+		<!-- <script src="./node_modules/highlight.js"></script> -->
+    <title>Rime</title>
+  </head>
+  <body>
+		<div id="content_wrapper">
+			<pre><code id="content"></code></pre>
+		</div>
+		<script>
+			var ipc = require("electron").ipcRenderer;
+			var contentArea = document.getElementById("content");
+
+			ipc.on("file-open", function(event, fcontent) {
+				contentArea.innerHTML = fcontent;
+				hljs.highlightBlock(contentArea);
+			});
+
+		</script>
+  </body>
+</html>

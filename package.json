@@ -1,0 +1,11 @@
+{
+  "name": "rime",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "highlight.js": "^9.18.1"
+  }
+}
